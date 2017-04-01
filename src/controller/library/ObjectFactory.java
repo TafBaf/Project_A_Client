@@ -24,7 +24,9 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _GetBooks_QNAME = new QName("http://controller/", "GetBooks");
+    private final static QName _AddBook_QNAME = new QName("http://controller/", "AddBook");
+	private final static QName _AddBookResponse_QNAME = new QName("http://controller/", "AddBookResponse");
+	private final static QName _GetBooks_QNAME = new QName("http://controller/", "GetBooks");
     private final static QName _GetBooksResponse_QNAME = new QName("http://controller/", "GetBooksResponse");
 
     /**
@@ -35,6 +37,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link AddBook }
+     * 
+     */
+    public AddBook createAddBook() {
+        return new AddBook();
+    }
+
+	/**
+     * Create an instance of {@link AddBookResponse }
+     * 
+     */
+    public AddBookResponse createAddBookResponse() {
+        return new AddBookResponse();
+    }
+
+	/**
      * Create an instance of {@link GetBooks }
      * 
      */
@@ -59,6 +77,24 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link AddBook }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://controller/", name = "AddBook")
+    public JAXBElement<AddBook> createAddBook(AddBook value) {
+        return new JAXBElement<AddBook>(_AddBook_QNAME, AddBook.class, null, value);
+    }
+
+	/**
+     * Create an instance of {@link JAXBElement }{@code <}{@link AddBookResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://controller/", name = "AddBookResponse")
+    public JAXBElement<AddBookResponse> createAddBookResponse(AddBookResponse value) {
+        return new JAXBElement<AddBookResponse>(_AddBookResponse_QNAME, AddBookResponse.class, null, value);
+    }
+
+	/**
      * Create an instance of {@link JAXBElement }{@code <}{@link GetBooks }{@code >}}
      * 
      */

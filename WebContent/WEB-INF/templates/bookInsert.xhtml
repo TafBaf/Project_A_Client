@@ -6,14 +6,15 @@
 	<br/><br/>
 	<p:outputLabel value="Insert new book"></p:outputLabel>
     <h:form>
-    <h:panelGrid columns="5" cellpadding="5">
-        <h:outputLabel for="name" value="Name:" style="font-weight:bold" />
-        <p:inputText id="name" value="#{bookAdd.book.name}" />
-        
-        <h:outputLabel for="author" value="Author:" style="font-weight:bold" />
-        <p:inputText id="author" value="#{bookAdd.book.author}" />        
-        
-        <p:commandButton value="Add" icon="ui-icon-check" action="#{bookAdd.Add()}" />
-    </h:panelGrid>
+	    <p:remoteCommand name="rc" update="bookList" actionListener="#{bookView.UpdateList}" />
+	    <h:panelGrid columns="5" cellpadding="5">
+	        <h:outputLabel for="name" value="Name:" style="font-weight:bold" />
+	        <p:inputText id="name" value="#{bookAdd.book.name}" />
+	        
+	        <h:outputLabel for="author" value="Author:" style="font-weight:bold" />
+	        <p:inputText id="author" value="#{bookAdd.book.author}" />        
+	        
+	        <p:commandButton value="Add" icon="ui-icon-check" update="bookList" action="#{bookAdd.Add()}" oncomplete="rc()" />
+	    </h:panelGrid>
 	</h:form>
 </ui:composition>

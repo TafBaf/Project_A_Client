@@ -6,7 +6,7 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.xml.namespace.QName;
 
 import controller.library.Book;
@@ -15,7 +15,7 @@ import controller.library.WSLibraryService;
 
 
 @ManagedBean
-@SessionScoped
+@ViewScoped
 public class BookView {
 
 	private List<Book> books = new ArrayList<Book>();
@@ -35,15 +35,24 @@ public class BookView {
         java.util.List<controller.library.Book> booksResult = port.getBooks();
         this.books = booksResult;
         
-		for(Book book: this.books){
-			System.out.println(book.getId());
-			System.out.println(book.getName());
-			System.out.println(book.getAuthor());
-
-		}
+//		for(Book book: this.books){
+//			System.out.println(book.getId());
+//			System.out.println(book.getName());
+//			System.out.println(book.getAuthor());
+//
+//		}
 	}	
 	
 
+	public void UpdateList() {
+		URL wsdlURL = WSLibraryService.WSDL_LOCATION;
+        WSLibraryService service = new WSLibraryService(wsdlURL, SERVICE_NAME);
+        WSLibrary port = service.getWSLibraryPort();   
+        
+        java.util.List<controller.library.Book> booksResult = port.getBooks();
+        this.books = booksResult;		
+	}
+	
 	public List<Book> getBooks() {
 		return books;
 	}

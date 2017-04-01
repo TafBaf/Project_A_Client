@@ -1,8 +1,10 @@
 package jsfBean;
 
+import java.io.Serializable;
 import java.net.URL;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.xml.namespace.QName;
 
 import controller.library.Book;
@@ -11,7 +13,10 @@ import controller.library.WSLibraryService;
 
 
 @ManagedBean
-public class BookAdd {
+@ViewScoped
+public class BookAdd implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	private Book book = new Book();
 
@@ -26,8 +31,7 @@ public class BookAdd {
         WSLibraryService service = new WSLibraryService(wsdlURL, SERVICE_NAME);
         WSLibrary port = service.getWSLibraryPort();   
         
-       // port.getBooks(book);
-        System.out.println(book.getName());
+        port.addBook(book);
 	}
 	
 
@@ -35,6 +39,7 @@ public class BookAdd {
 		return book;
 	}
 
+	
 	public void setBook(Book book) {
 		this.book = book;
 	}
