@@ -1,8 +1,0 @@
-/**
- * 
- */
-/**
- * @author Taf
- *
- */
-package jsfBean;
