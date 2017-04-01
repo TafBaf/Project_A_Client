@@ -19,7 +19,7 @@ import controller.library.WSLibraryService;
 public class ViewBook {
 
 	private List<Book> books = new ArrayList<Book>();
-    private static final QName SERVICE_NAME = new QName("http://controller/", "InfoProviderService");
+	private static final QName SERVICE_NAME = new QName("http://controller/", "WS_LibraryService");
     
 	public ViewBook() {
 		
@@ -32,7 +32,15 @@ public class ViewBook {
         WSLibraryService service = new WSLibraryService(wsdlURL, SERVICE_NAME);
         WSLibrary port = service.getWSLibraryPort();   
         
-        java.util.List<controller.library.Book> books = port.getBooks();
+        java.util.List<controller.library.Book> booksResult = port.getBooks();
+        this.books = booksResult;
+        
+		for(Book book: this.books){
+			System.out.println(book.getId());
+			System.out.println(book.getName());
+			System.out.println(book.getAuthor());
+
+		}
 	}	
 	
 
