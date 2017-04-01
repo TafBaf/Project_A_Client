@@ -16,12 +16,12 @@ import controller.library.WSLibraryService;
 
 @ManagedBean
 @SessionScoped
-public class ViewBook {
+public class BookView {
 
 	private List<Book> books = new ArrayList<Book>();
 	private static final QName SERVICE_NAME = new QName("http://controller/", "WS_LibraryService");
     
-	public ViewBook() {
+	public BookView() {
 		
 	}	
 	

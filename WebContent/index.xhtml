@@ -1,26 +1,43 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Books</title>
-</h:head>	
-<p:outputLabel value="JSF2/Primefaces"></p:outputLabel>
-<p:dataTable value="#{viewBook.books}" var="book">
-	<p:column>
-		<f:facet name="header">
-			<h:outputText value="Name"></h:outputText>
-		</f:facet>
-		<h:outputText value="#{book.name}"></h:outputText>
-	</p:column>
-	<p:column>
-		<f:facet name="header">
-			<h:outputText value="Author"></h:outputText>
-		</f:facet>
-		<h:outputText value="#{book.author}"></h:outputText>
-	</p:column>
-</p:dataTable>
+  <title><ui:insert name="title">Books</ui:insert></title>
+</h:head>
+
+<h:body>
+<ui:debug hotkey="x" rendered="#{initParam['javax.faces.FACELETS_DEVELOPMENT']}"/>
+
+<div id="header">
+	<p:outputLabel value="JSF2/Primefaces"></p:outputLabel>
+    <ui:insert name="header">
+    	<ui:include src="/WEB-INF/templates/header.xhtml"/>
+    </ui:insert>
+</div>
+
+<div id="menu">Menu</div>
+
+<div id="content">
+  <ui:insert name="content">
+	  	<div>
+    		<ui:include src="/WEB-INF/templates/bookList.xhtml"/>  
+    	</div>
+	  	<div>
+    		<ui:include src="/WEB-INF/templates/bookInsert.xhtml"/>  
+    	</div>    	
+  </ui:insert>
+</div>
+
+<div id="footer">
+  <ui:insert name="footer">
+		<ui:include src="/WEB-INF/templates/footer.xhtml"/>
+  </ui:insert>
+</div>
+
+</h:body>
+
 </html>
