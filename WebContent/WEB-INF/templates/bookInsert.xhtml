@@ -5,7 +5,7 @@
 	xmlns:p="http://primefaces.org/ui">
 	<br/><br/>
 	<p:outputLabel value="Insert new book"></p:outputLabel>
-    <h:form>
+	<h:form>
 	    <p:remoteCommand name="rc" update="bookList" actionListener="#{bookView.UpdateList}" />
 	    <h:panelGrid columns="5" cellpadding="5">
 	        <h:outputLabel for="name" value="Name:" style="font-weight:bold" />
