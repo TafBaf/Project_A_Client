@@ -9,12 +9,12 @@
 	    <p:remoteCommand name="rc" update="bookList" actionListener="#{bookView.UpdateList}" />
 	    <h:panelGrid columns="5" cellpadding="5">
 	        <h:outputLabel for="name" value="Name:" style="font-weight:bold" />
-	        <p:inputText id="name" value="#{bookAdd.book.name}" />
+	        <p:inputText id="name" value="#{bookHandler.book.name}" />
 	        
 	        <h:outputLabel for="author" value="Author:" style="font-weight:bold" />
-	        <p:inputText id="author" value="#{bookAdd.book.author}" />        
+	        <p:inputText id="author" value="#{bookHandler.book.author}" />        
 	        
-	        <p:commandButton value="Add" icon="ui-icon-check" update="bookList" action="#{bookAdd.Add()}" oncomplete="rc()" />
+	        <p:commandButton value="Add" icon="ui-icon-check" update="bookList" action="#{bookHandler.AddBook()}" oncomplete="rc()" />
 	    </h:panelGrid>
 	</h:form>
 </ui:composition>

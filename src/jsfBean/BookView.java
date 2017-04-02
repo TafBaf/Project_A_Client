@@ -9,9 +9,9 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.xml.namespace.QName;
 
-import controller.library.Book;
-import controller.library.WSLibrary;
-import controller.library.WSLibraryService;
+import controller.Book;
+import controller.WSLibrary;
+import controller.WSLibraryService;
 
 
 @ManagedBean
@@ -32,7 +32,7 @@ public class BookView {
         WSLibraryService service = new WSLibraryService(wsdlURL, SERVICE_NAME);
         WSLibrary port = service.getWSLibraryPort();   
         
-        java.util.List<controller.library.Book> booksResult = port.getBooks();
+        java.util.List<controller.Book> booksResult = port.getBooks();
         this.books = booksResult;
         
 //		for(Book book: this.books){
@@ -49,7 +49,7 @@ public class BookView {
         WSLibraryService service = new WSLibraryService(wsdlURL, SERVICE_NAME);
         WSLibrary port = service.getWSLibraryPort();   
         
-        java.util.List<controller.library.Book> booksResult = port.getBooks();
+        java.util.List<controller.Book> booksResult = port.getBooks();
         this.books = booksResult;		
 	}
 	
