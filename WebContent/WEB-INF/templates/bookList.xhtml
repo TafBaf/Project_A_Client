@@ -18,7 +18,7 @@
 		</p:column>
 	    <p:column headerText="">
 	        <h:form>
-	            <p:remoteCommand name="rc1" update="bookList" actionListener="#{bookView.UpdateList}" />
+	            <p:remoteCommand name="rc1" update="bookList" actionListener="#{bookView.PopulateBooks}" />
 	            <p:commandButton value="Delete" styleClass="btn btn-primary" action="#{bookHandler.DeleteBook(book.id)}" oncomplete="rc1()"/>
 	         </h:form>
 	    </p:column>		

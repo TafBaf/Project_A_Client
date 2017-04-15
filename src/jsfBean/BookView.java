@@ -44,15 +44,6 @@ public class BookView {
 	}	
 	
 
-	public void UpdateList() {
-		URL wsdlURL = WSLibraryService.WSDL_LOCATION;
-        WSLibraryService service = new WSLibraryService(wsdlURL, SERVICE_NAME);
-        WSLibrary port = service.getWSLibraryPort();   
-        
-        java.util.List<controller.Book> booksResult = port.getBooks();
-        this.books = booksResult;		
-	}
-	
 	public List<Book> getBooks() {
 		return books;
 	}
