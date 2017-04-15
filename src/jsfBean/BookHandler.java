@@ -11,7 +11,6 @@ import controller.Book;
 import controller.WSLibrary;
 import controller.WSLibraryService;
 
-
 @ManagedBean
 @ViewScoped
 public class BookHandler implements Serializable {
@@ -23,38 +22,33 @@ public class BookHandler implements Serializable {
 	private static final QName SERVICE_NAME = new QName("http://controller/", "WS_LibraryService");
 
 	public BookHandler() {
-		
+
 	}
-	
-	
+
 	public void AddBook() {
 		URL wsdlURL = WSLibraryService.WSDL_LOCATION;
-        WSLibraryService service = new WSLibraryService(wsdlURL, SERVICE_NAME);
-        WSLibrary port = service.getWSLibraryPort();   
-        
-        port.addBook(book);
+		WSLibraryService service = new WSLibraryService(wsdlURL, SERVICE_NAME);
+		WSLibrary port = service.getWSLibraryPort();
+
+		port.addBook(book);
 	}
-	
-	
+
 	public void DeleteBook(int id) {
 		System.out.println(String.valueOf(id));
-		
+
 		URL wsdlURL = WSLibraryService.WSDL_LOCATION;
-        WSLibraryService service = new WSLibraryService(wsdlURL, SERVICE_NAME);
-        WSLibrary port = service.getWSLibraryPort();   
-        
-        port.deleteBook(String.valueOf(id));		
+		WSLibraryService service = new WSLibraryService(wsdlURL, SERVICE_NAME);
+		WSLibrary port = service.getWSLibraryPort();
+
+		port.deleteBook(String.valueOf(id));
 	}
-	
 
 	public Book getBook() {
 		return book;
 	}
 
-	
 	public void setBook(Book book) {
 		this.book = book;
 	}
 
-	
 }
