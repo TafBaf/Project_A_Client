@@ -1,4 +1,4 @@
-package jsfBean;
+package view;
 
 import java.io.Serializable;
 import java.net.URL;
@@ -6,6 +6,10 @@ import java.net.URL;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.xml.namespace.QName;
+
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import controller.Book;
 import controller.WSLibrary;
@@ -17,6 +21,8 @@ public class BookHandler implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	private static final Logger logger = LogManager.getLogger(BookHandler.class);
+	
 	private Book book = new Book();
 
 	private static final QName SERVICE_NAME = new QName("http://controller/", "WS_LibraryService");
@@ -31,6 +37,12 @@ public class BookHandler implements Serializable {
 		WSLibrary port = service.getWSLibraryPort();
 
 		port.addBook(book);
+
+        logger.trace("Entering application.");
+        logger.error("Didn't do it.");
+		
+		logger.trace("See on log!!!!");
+		logger.error("Error !!! Log it!!!!!!!!!!!!!!");
 	}
 
 	public void DeleteBook(int id) {

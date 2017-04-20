@@ -1,4 +1,4 @@
-package jsfBean;
+package view;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -12,6 +12,8 @@ import javax.xml.namespace.QName;
 import controller.Book;
 import controller.WSLibrary;
 import controller.WSLibraryService;
+
+
 
 @ManagedBean
 @ViewScoped
